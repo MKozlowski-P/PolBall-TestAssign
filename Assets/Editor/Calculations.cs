@@ -1,19 +1,20 @@
 ﻿using UnityEngine;
 
-public class Calculations
+public static class Calculations
 {
-    int numberOfObjects;
-    float radius;
+    public static int numberOfObjects; //{ get; set; }
+    public static float gapSize;
+    public static float radius = 5;
+    public static int boxSize;
 
-    public int CirclePreSet(float radius, float gapSize, int objectSize)
+    public static void CirclePreSet()
     {
-        this.radius = radius;
         float circ = 2 * Mathf.PI * radius;
-        float objSizeWithGaps = objectSize + objectSize * (objectSize / radius * gapSize);
-        return numberOfObjects = (int)(circ / objSizeWithGaps);
+        float objSizeWithGaps = boxSize + boxSize * (boxSize / radius * gapSize);
+        numberOfObjects = (int)(circ / objSizeWithGaps);
     }
 
-    public Vector3 CircleCalc(int step)
+    public static Vector3 CircleCalc(int step)
     {
         Vector3 cCalc;
         float angle = step * Mathf.PI * 2 / numberOfObjects;
@@ -21,6 +22,5 @@ public class Calculations
         cCalc.z = Mathf.Sin(angle) * radius;
         cCalc.y = -angle * Mathf.Rad2Deg;
         return cCalc;
-
     }
 }
