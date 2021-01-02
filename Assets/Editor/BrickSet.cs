@@ -7,6 +7,7 @@ public class BrickSet
         Calculations.CirclePreSet();
         GameObject parentObj = new GameObject("Circle Parent object");
         GameObject[] boxes = new GameObject[Calculations.numberOfObjects];
+        Vector3 boxSize = new Vector3(Calculations.boxSize, Calculations.boxSize, Calculations.boxSize);
 
         for (int i = 0; i < boxes.Length; i++)
         {
@@ -20,7 +21,7 @@ public class BrickSet
 
             boxes[i].transform.position = pos;
             boxes[i].transform.rotation = rot;
-            boxes[i].transform.localScale = new Vector3(Calculations.boxSize, Calculations.boxSize, Calculations.boxSize);
+            boxes[i].transform.localScale = boxSize;
             boxes[i].GetComponent<MeshRenderer>().material = (Material)matt;
             boxes[i].GetComponent<MeshRenderer>().sharedMaterial.color = _boxColor;
             boxes[i].transform.SetParent(parentObj.transform, false);
