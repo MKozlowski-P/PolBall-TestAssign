@@ -2,7 +2,7 @@
 
 public static class Calculations
 {
-    public static int numberOfObjects; //{ get; set; }
+    public static int numberOfObjects;
     public static float gapSize;
     public static float radius = 5;
     public static int boxSize;

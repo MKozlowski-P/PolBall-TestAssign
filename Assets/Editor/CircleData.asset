@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b9e1d1cacafeb4591da734c274e859, type: 3}
+  m_Name: CircleData
+  m_EditorClassIdentifier: 
+  radius: 7
+  gapSize: 10
+  objectSize: 2
+  material: {fileID: 2100000, guid: 98b5b4643b3410945842751ff0d07af5, type: 2}
+  boxColor: {r: 0, g: 0.102636576, b: 1, a: 1}
