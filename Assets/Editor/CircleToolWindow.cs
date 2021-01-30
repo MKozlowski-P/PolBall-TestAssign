@@ -3,8 +3,8 @@ using UnityEditor;
 
 public class CircleToolWindow : EditorWindow
 {
-    private Color _boxColor = Color.green;
-    private Material _matToUse;
+    private Color boxColor = Color.green;
+    private Material matToUse;
     private CircleScriptObject _circleScriptObj;
     private GameObject _selectedObject;
 
@@ -50,14 +50,14 @@ public class CircleToolWindow : EditorWindow
 
         EditorGUILayout.BeginHorizontal();
         GUILayout.Label("Box Color");
-        _boxColor = EditorGUILayout.ColorField(_boxColor);
+        boxColor = EditorGUILayout.ColorField(boxColor);
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.Space();
 
         EditorGUILayout.BeginHorizontal();
         GUILayout.Label("Material");
-        _matToUse = (Material)EditorGUILayout.ObjectField(_matToUse, typeof(Material), false);
+        matToUse = (Material)EditorGUILayout.ObjectField(matToUse, typeof(Material), false);
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.Space(10);
@@ -65,7 +65,7 @@ public class CircleToolWindow : EditorWindow
         if (GUILayout.Button("Create circle"))
         {
             _selectedObject = Selection.activeGameObject;
-            shapeCreate = new BrickSet(_selectedObject, _matToUse, _boxColor);
+            shapeCreate = new BrickSet(_selectedObject, matToUse, boxColor);
             shapeCreate.SetBoxes();
         }
 
@@ -98,8 +98,8 @@ public class CircleToolWindow : EditorWindow
                 circScriptObj.radius = Calculations.radius;
                 circScriptObj.gapSize = Calculations.gapSize;
                 circScriptObj.objectSize = Calculations.boxSize;
-                circScriptObj.material = _matToUse;
-                circScriptObj.boxColor = _boxColor;
+                circScriptObj.material = matToUse;
+                circScriptObj.boxColor = boxColor;
                 AssetDatabase.CreateAsset(circScriptObj, "Assets/Editor/CircleData.asset");
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
@@ -111,9 +111,9 @@ public class CircleToolWindow : EditorWindow
                 _circleScriptObj.objectSize = Calculations.boxSize;
                 if (_circleScriptObj.material != null)
                 {
-                    _circleScriptObj.material = _matToUse;
+                    _circleScriptObj.material = matToUse;
                 }
-                _circleScriptObj.boxColor = _boxColor;
+                _circleScriptObj.boxColor = boxColor;
             }
         }
 
@@ -127,10 +127,10 @@ public class CircleToolWindow : EditorWindow
                 Calculations.boxSize = _circleScriptObj.objectSize;
                 if (_circleScriptObj.material != null)
                 {
-                    _matToUse = _circleScriptObj.material;
+                    matToUse = _circleScriptObj.material;
                 }
-                _boxColor = _circleScriptObj.boxColor;
-                shapeCreate = new BrickSet(_selectedObject, _matToUse, _boxColor);
+                boxColor = _circleScriptObj.boxColor;
+                shapeCreate = new BrickSet(_selectedObject, matToUse, boxColor);
                 shapeCreate.SetBoxes();
             }
             else

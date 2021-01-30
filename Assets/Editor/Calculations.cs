@@ -7,7 +7,7 @@ public static class Calculations
     public static float radius = 5;
     public static int boxSize;
 
-    public static void CirclePreSet()
+    public static void ShapePreSet()
     {
         float circ = 2 * Mathf.PI * radius;
         float objSizeWithGaps = boxSize + boxSize * (boxSize / radius * gapSize);
